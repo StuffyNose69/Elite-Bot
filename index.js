@@ -153,45 +153,6 @@ client.on("messageCreate", async message => {
     client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
   }
 
-  if (message.content.startsWith("e.suggest")) {
-    let args = message.content
-      .split(" ")
-      .slice(1)
-    message.delete();
-    let sent = new Discord.MessageEmbed()
-      .setTitle("Suggestion Command")
-      .setDescription(`Your suggestion in for **ELITE** has been sent!`)
-      .setColor("GREEN")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let error = new Discord.MessageEmbed()
-      .setTitle("Suggestion Command")
-      .setDescription("Hey! To suggest something you need to send something! Use the command like this:\n`e.suggest (suggestion)`")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    if (!args[0]) return message.author.send({ embeds: [error] })
-    const reportlog = new Discord.MessageEmbed()
-      .setAuthor(`Suggestion by ${message.author.username}`, message.author.displayAvatarURL())
-      .setTitle('Suggestion Command')
-      .setColor('RANDOM')
-      .setDescription(args.join(" "))
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    client.channels.cache.get('911730274272960532').send({ embeds: [reportlog] }).then(sentMessage => {
-      sentMessage.react("✅")
-      sentMessage.react("❌")
-    })
-    message.author.send({ embeds: [sent] })
-    let logcmd = new Discord.MessageEmbed()
-    .setTitle("Command Logger")
-    .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **suggest** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-    .setColor("#661111")
-    .setFooter("Elite Bot | v1.0.0")
-    .setTimestamp()
-    client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-  }
-
   // -----------------------------HELP COMMANDS-----------------------------------
 
   if (message.content === "e.help") {
@@ -420,50 +381,6 @@ client.on("messageCreate", async message => {
     let logcmd = new Discord.MessageEmbed()
     .setTitle("Command Logger")
     .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **embedtemplate** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-    .setColor("#661111")
-    .setFooter("Elite Bot | v1.0.0")
-    .setTimestamp()
-    client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-  }
-
-  if (message.content === "e.botinvite") {
-    let e = new Discord.MessageEmbed()
-      .setTitle("Bot Invite")
-      .setDescription("**Click the link below to invite this bot to your server!**\nhttps://discord.com/api/oauth2/authorize?client_id=869245454011994182&permissions=8&scope=bot")
-      .setFooter("Elite Bot | v1.0.0")
-      .setColor("RANDOM")
-      .setTimestamp()
-    message.reply({ embeds: [e] })
-    let logcmd = new Discord.MessageEmbed()
-    .setTitle("Command Logger")
-    .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **botinvite** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-    .setColor("#661111")
-    .setFooter("Elite Bot | v1.0.0")
-    .setTimestamp()
-    client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-  }
-
-  if (message.content.startsWith("e.botinfo")) {
-    let embed = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setAuthor(`Requested by ${message.author.username}`)
-      .setTitle("Botinfo Command")
-      .setDescription(`**${client.user.username}**'s Informations`)
-      .addField("Bots Developers", "**StuffyNose69#0009 (`746994669715587182`), 4Peace#6157 (`388427005764567053`) A_Random_Boi#0001 (`628364508884107274`)**", true)
-      .addField("Bot Prefix", "`e.`", true)
-      .addField("Bots ID", `**${client.user.id}**`, true)
-      .addField("Created At", `**${client.user.createdAt}**`, true)
-      .addField("Total Servers Joined", `**${client.guilds.cache.size}**`, true)
-      .addField("Language", "**node.js** (JavaScript)", true)
-      .addField("Library", "**discord.js** v13.6.0", true)
-      .addField("Current Latency", `**${client.ws.ping}**ms`, true)
-      .addField("Uptime", "`e.uptime` command", true)
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    message.reply({ embeds: [embed] })
-    let logcmd = new Discord.MessageEmbed()
-    .setTitle("Command Logger")
-    .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **botinfo** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
     .setColor("#661111")
     .setFooter("Elite Bot | v1.0.0")
     .setTimestamp()
@@ -800,12 +717,6 @@ client.on("messageCreate", async message => {
     client.channels.cache.get('940771357371822140').send(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **69** short command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
   }
 
-  if (message.content === "e.cynder") {
-      message.delete()
-      message.channel.send("<@193711236544856065> hey cynder wanna play rl sideswipe? <:troll:936766311936176169>")
-      client.channels.cache.get('940771357371822140').send(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **cynder** short command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-  }
-
   if(message.content === "e.liebe") {
     message.delete()
     message.channel.send("liebe used mic again")
@@ -838,12 +749,6 @@ client.on("messageCreate", async message => {
     message.react("<:troll:936766311936176169>")
   }
 
-  if(message.content === "e.coolideaczar") {
-    message.delete()
-    message.channel.send("Thats a really cool idea <@701632412488040538>!")
-    client.channels.cache.get('940771357371822140').send(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **coolideaczar** short command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-  }
-
   if(message.content === "e.smile") {
     message.delete()
     message.channel.send(":D")
@@ -864,220 +769,6 @@ client.on("messageCreate", async message => {
   
 
   // --------------------------MODERATION COMMANDS--------------------------------
-
-  if (message.content.toLowerCase().startsWith('e.kick')) {
-    const member = message.mentions.members.first()
-    let mention = new Discord.MessageEmbed()
-      .setTitle("Kick Command")
-      .setDescription("**:x: | You need to mention a user/provide the ID of the person you want to kick.**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let perms = new Discord.MessageEmbed()
-      .setTitle("Kick Command")
-      .setDescription("**:x: | You do not have the required permissions to execute this command!**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let outrank = new Discord.MessageEmbed()
-      .setTitle("Kick Command")
-      .setDescription("**:x: | You cannot kick Moderators from the server/I do not have permission to kick users with this role!**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let kick = new Discord.MessageEmbed()
-      .setAuthor(`Kicked by ${message.author.username}`, message.author.displayAvatarURL())
-      .setTitle("Kick Command")
-      .setDescription(`**:white_check_mark: | Sucessfully kicked ${member} from the server!**`)
-      .setColor("GREEN")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    if (!member) return message.reply({ content: "There was an error with your command request:", embeds: [mention] })
-    if (!message.member.permissions.has('KICK_MEMBERS')) return message.reply({ content: "There was an error with your command request:", embeds: [perms] })
-    if (member.permissions.has('KICK_MEMBERS') || member.permissions.has('BAN_MEMBERS')) return message.reply({ content: "There was an error with your command request:", embeds: [outrank] })
-
-    try {
-      member.kick().then(() => {
-        message.reply({ embeds: [kick] })
-        client.channels.cache.get('913186391817609258').send({ embeds: [kick]})
-        let logcmd = new Discord.MessageEmbed()
-        .setTitle("Command Logger")
-        .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **kick** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-        .setColor("#661111")
-        .setFooter("Elite Bot | v1.0.0")
-        .setTimestamp()
-        client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-      })
-    } catch (err) {
-      console.log(err)
-      message.channel.send('Oops, something went wrong. This is probably not your fault, rather the developers.')
-    }
-  }
-
-  if (message.content.toLowerCase().startsWith('e.ban')) {
-    const member = message.mentions.members.first()
-    let mention = new Discord.MessageEmbed()
-      .setTitle("Ban Command")
-      .setDescription("**:x: | You need to mention a user/provide the ID of the person you want to ban.**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let perms = new Discord.MessageEmbed()
-      .setTitle("Ban Command")
-      .setDescription("**:x: | You do not have the required permissions to execute this command!**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let outrank = new Discord.MessageEmbed()
-      .setTitle("Ban Command")
-      .setDescription("**:x: | You cannot ban Moderators from the server/I do not have permission to ban users with this role!**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    let ban = new Discord.MessageEmbed()
-      .setAuthor(`Banned by ${message.author.username}`, message.author.displayAvatarURL())
-      .setTitle("Ban Command")
-      .setDescription(`**:white_check_mark: | Sucessfully banned ${member} from the server!**`)
-      .setColor("GREEN")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    if (!member) return message.reply({ content: "There was an error with your command request:", embeds: [mention] })
-    if (!message.member.permissions.has('BAN_MEMBERS')) return message.reply({ content: "There was an error with your command request:", embeds: [perms] })
-    if (member.permissions.has('KICK_MEMBERS') || member.permissions.has('BAN_MEMBERS')) return message.reply({ content: "There was an error with your command request:", embeds: [outrank] })
-
-    try {
-      member.ban().then(() => {
-        message.reply({ embeds: [ban] })
-        client.channels.cache.get('913186391817609258').send({ embeds: [ban]})
-        let logcmd = new Discord.MessageEmbed()
-        .setTitle("Command Logger")
-        .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **ban** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-        .setColor("#661111")
-        .setFooter("Elite Bot | v1.0.0")
-        .setTimestamp()
-        client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-      })
-    } catch (err) {
-      console.log(err)
-      message.channel.send('Oops, something went wrong. This is probably not your fault, rather the developers. Fuck that guy.')
-    }
-  }
-
-  if (message.content.startsWith("e.warn")) {
-    if (message.member.permissions.has("MANAGE_MESSAGES")) {
-    let args = message.content
-    .split(" ")
-    .slice(1)
-
-    const victim = message.mentions.users.first()
-      if (!args[0]) return message.reply("Hey! Please mention someone you want to warn!\n`e.warn @mention [reason]`")
-
-      let modlog = new Discord.MessageEmbed()
-        .setAuthor(`Moderater : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
-        .setTitle("Warn Command")
-        .setDescription(args.join(" "))
-        .setColor("RED")
-        .setFooter("Elite Bot | v1.0.0")
-        .setTimestamp()
-      let dm = new Discord.MessageEmbed()
-        .setAuthor(`Moderater : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
-        .setTitle(`Warned in ${message.guild.name}`)
-        .setDescription(args.join(" "))
-        .setColor("RED")
-        .setFooter("Elite Bot | v1.0.0")
-        .setTimestamp()
-      let perms = new Discord.MessageEmbed()
-        .setTitle("Warn Command")
-        .setDescription("**:x: | You do not have the required permissions to execute this command!**")
-        .setColor("RED")
-        .setFooter("Elite Bot | v1.0.0")
-        .setTimestamp()
-      let success = new Discord.MessageEmbed()
-        .setAuthor(`Warned by ${message.author.username}`, message.author.displayAvatarURL())
-        .setTitle("Warn Command")
-        .setDescription(`**:white_check_mark: | Successfully warned ${victim}**`)
-        .setColor("GREEN")
-        .setFooter("Elite Bot | v1.0.0")
-        .setTimestamp()
-      message.reply({ embeds: [success] })
-      client.channels.cache.get('913186391817609258').send({ embeds: [success]})
-      try {
-      await message.author.send({ embeds: [modlog] })
-      await victim.send({ embeds: [dm] })
-    } catch (err) {
-      console.error(err)
-    }
-    let logcmd = new Discord.MessageEmbed()
-      .setTitle("Command Logger")
-      .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **warn** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-      .setColor("#661111")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-    client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-    } else {
-      message.reply({ embeds: [perms] })
-    }
-  }
-
-  if (message.content.startsWith("e.purge")) {
-    let arg = message.content.split(" ")
-    if (message.member.permissions.has("MANAGE_MESSAGES")) {
-      let clear = arg[1];
-      let noi = new Discord.MessageEmbed()
-        .setTitle("Purge Command")
-        .setDescription(":x: **| Incorrect usage of command you need to provide an amount of messages to Clear.**\n**Example:** `e.purge 50` ")
-        .setFooter("Elite Bot | v1.0.0")
-        .setColor("RED")
-        .setTimestamp()
-      let non = new Discord.MessageEmbed()
-        .setTitle("Purge Command")
-        .setDescription(":x: **| Please Put a Valid Number of Messages to Clear!**")
-        .setFooter("Elite Bot | v1.0.0")
-        .setColor("RED")
-        .setTimestamp()
-      let msg100 = new Discord.MessageEmbed()
-        .setTitle("Purge Command")
-        .setDescription(":x: **| I can't Clear more than 100 messages.**")
-        .setFooter("Elite Bot | v1.0.0")
-        .setColor("RED")
-        .setTimestamp()
-      let msg1 = new Discord.MessageEmbed()
-        .setTitle("Purge Command")
-        .setDescription(":x: **| You cannot Clear less than 1 message.**")
-        .setFooter("Elite Bot | v1.0.0")
-        .setColor("RED")
-        .setTimestamp()
-      let perms = new Discord.MessageEmbed()
-        .setTitle("Purge Command")
-        .setDescription(":x: **| You do not have the required permissions to execute this command!**")
-        .setFooter("Elite Bot | v1.0.0")
-        .setColor("RED")
-        .setTimestamp()
-      let success = new Discord.MessageEmbed()
-        .setAuthor(`Purged by ${message.author.username}`, message.author.displayAvatarURL())
-        .setTitle("Purge Command")
-        .setDescription(`:white_check_mark: **| Succesfully cleared ${clear} messages!**`)
-        .setFooter("Elite Bot | v1.0.0")
-        .setColor("GREEN")
-        .setTimestamp()
-      if (!clear) return message.reply({ embeds: [noi] })
-      if (isNaN(clear)) return message.reply({ embeds: [non] })
-      if (clear > 100) return message.reply({ embeds: [msg100] })
-      if (clear < 1) return message.reply({ embeds: [msg1] })
-
-      message.channel.bulkDelete(clear)
-      client.channels.cache.get('913186391817609258').send({ embeds: [success]})
-      let logcmd = new Discord.MessageEmbed()
-      .setTitle("Command Logger")
-      .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n${message.author.username} used the **purge** command in ${message.channel}\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
-      .setColor("#661111")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-      client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-    } else {
-      message.reply({ embeds: [perms] })
-    }
-  }
 
   // -----------------------------TEST COMMANDS-----------------------------------
 
@@ -1333,48 +1024,6 @@ client.on("messageCreate", async message => {
     .setFooter("Elite Bot | v1.0.0")
     .setTimestamp()
     client.channels.cache.get('940771357371822140').send({ content: "A new command was used!", embeds:[logcmd]})
-  }
-
-  if(message.content.toLowerCase().startsWith("e.nominate")) {
-  const victim = message.mentions.users.first()
-    const check = await db.get(`dailyCheck_${victim.id}`)
-    const timeout = 120;
-    if(check !== null && timeout - (Date.now() - check) > 0) {
-      const ms = require("pretty-ms")
-      const timeLeft = ms(timeout - (Date.now() - check))
-      let error = new Discord.MessageEmbed()
-      .setDescription(`:x: | **You have already nominated someone! You can vote again on ${timeLeft}**`)
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      message.channel.send({ embeds: [error]})
-    } else {
-      if (!victim) {
-      let mention = new Discord.MessageEmbed()
-      .setTitle("Ban Command")
-      .setDescription("**:x: | You need to mention a user/provide the ID of the person you want to nominate.**")
-      .setColor("RED")
-      .setFooter("Elite Bot | v1.0.0")
-      .setTimestamp()
-      message.reply({ content: "There was an error with your command request:", embeds: [mention] })
-      } else {
-      try {
-        let reward = 1;
-        let currentBalance = await db.get(`wallet_${victim.id}`)
-        let claimed = new Discord.MessageEmbed()
-        .setAuthor(`Nominations by ${message.author.username} for ${victim.username}`, message.author.displayAvatarURL())
-        .setTitle("Nomination Command")
-        .setDescription(`:white_check_mark: | **Your nomination of ${victim} has been registered. ${victim}'s total nomination amount is now ${reward.toLocaleString()} + ${currentBalance} votes! You can vote again in 14 days!**`)
-        .setColor("#42F400")
-        .setFooter("Crossed Bot | v1.0.0")
-        await message.channel.send({ embeds: [claimed]})
-        await db.set(`wallet_${victim.id}`, currentBalance + reward)
-        await db.set(`dailyCheck_${victim.id}`, Date.now())
-      } catch (err) {
-        console.error(err)
-      }
-      return // stop here
-      }
-    }
   }
 
 
